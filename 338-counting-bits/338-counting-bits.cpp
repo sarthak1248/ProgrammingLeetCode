@@ -3,15 +3,21 @@ public:
     vector<int> countBits(int n) {
         vector<int> ans;
         for(int i=0;i<=n;i++){
-            int sum=0;
-            int num=i;
-            
-            while(num){
-                sum=sum+(num%2);
-                num=num/2;
-            }
-            ans.push_back(sum);
+            ans.push_back(solve(i));
         }
         return ans;
+    }
+    int solve(int n){
+       if(n==0){
+           return 0;
+       } 
+        if(n==1){
+            return 1;
+        }
+        if(n%2==0){
+            return solve(n/2);
+        }
+        else{ 
+        return 1+solve(n/2);}
     }
 };
