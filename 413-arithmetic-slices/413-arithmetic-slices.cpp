@@ -6,10 +6,10 @@ public:
         }
         int cnt=0,ans=0;
        int diff= nums[1]-nums[0];
-        for(int i=1;i<nums.size()-1;++i){
+        for(int i=1;i<nums.size()-1;i++){
             int newdiff= nums[i+1]-nums[i];
             if(newdiff==diff){
-                ++cnt;
+                cnt++;
             }
             else{
                 diff=newdiff;
