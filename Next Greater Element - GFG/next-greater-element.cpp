@@ -8,36 +8,35 @@ class Solution
 {
     public:
     //Function to find the next greater element for each element of the array.
-    vector<long long> nextLargerElement(vector<long long> arr, int N){
-        stack<long long>s;
+    vector<long long> nextLargerElement(vector<long long> arr, int n){
         vector<long long> res;
-        for(int i=N-1;i>=0;i--){
+        stack<long long> s;
+        
+        for(int i=n-1;i>=0;i--){
             if(s.size()==0){
-             res.push_back(-1);
+                res.push_back(-1);
             }
-            else if(s.top()>arr[i] && s.size()>0){
+            else if(s.top()>arr[i]){
                 res.push_back(s.top());
-            
             }
-            else if(s.size()>0&&s.top()<arr[i]){
+            else if(s.top()<arr[i] && s.size()>0){
                 while(s.size()>0&&s.top()<arr[i]){
-                s.pop();
+                    s.pop();
                 }
                 if(s.size()==0){
                     res.push_back(-1);
+                    
                 }
                 else{
                     res.push_back(s.top());
                 }
             }
-            s.push(arr[i]);   
+            s.push(arr[i]);
         }
         reverse(res.begin(),res.end());
+        return res;
         // Your code here
-    return res;
-        
     }
-    
 };
 
 // { Driver Code Starts.
