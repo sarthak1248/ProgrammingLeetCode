@@ -26,41 +26,50 @@ int main(){
 	}
 }// } Driver Code Ends
 
-stack<int> ss;
+int minele;
 void push(stack<int>& s, int a){
 	// Your code goes here
-	s.push(a);
-	if(ss.size()==0 || ss.top()>=s.top()){
-	    ss.push(a);
+	if(s.size()==0 ){
+	    s.push(a);
+	    minele=a;
+	}
+	else{ 
+	if(a<minele){
+	    s.push((2*a)-minele);
+	    minele=a;
+	}
+	else if(a>=minele){
+	    s.push(a);
+	}
 	}
 }
 
 bool isFull(stack<int>& s,int n){
-     return(s.size()==n);
 	// Your code goes here
+	return(s.size()==n);
 }
 
 bool isEmpty(stack<int>& s){
 	// Your code goes here
-	return(s.empty());
+	return (s.empty());
 }
 
 int pop(stack<int>& s){
-    
-    if(s.top()==ss.top()){
-        s.pop();
-        ss.pop();
-    }
-    else{
+    if(s.top()<minele){
+        minele= (2*minele)-s.top();
         s.pop();
     }
-	// Your code goes here
+    else{s.pop();
+	}// Your code goes here
 }
 
 int getMin(stack<int>& s){
-    if(ss.size()==0){
+    if(s.size()==0){
         return -1;
+        
     }
-    return ss.top();
+    
+        return minele;
+    
 	// Your code goes here
 }
