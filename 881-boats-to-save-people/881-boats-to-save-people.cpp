@@ -11,13 +11,9 @@ public:
                 high--;
                 count++;
             }
-            else if(p[low]+p[high]==limit){
-                count++;
-                low++;
-                high--;
-            }
+           
             
-            else if(p[low]+p[high]<limit){
+            else if(p[low]+p[high]<=limit){
                 count= count+1;
                 low++;
                 high--;
