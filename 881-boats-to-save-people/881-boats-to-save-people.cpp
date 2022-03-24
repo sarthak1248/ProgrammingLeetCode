@@ -13,7 +13,7 @@ public:
             }
            
             
-            else if(p[low]+p[high]<=limit){
+            else {
                 count= count+1;
                 low++;
                 high--;
