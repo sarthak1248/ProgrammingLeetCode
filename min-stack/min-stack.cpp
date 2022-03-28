@@ -26,7 +26,7 @@ public:
         if(s.size()==0){
             return;
         }
-        else if(s.top()>minele){
+        else if(s.top()>=minele){
             s.pop();
         }
         else {
