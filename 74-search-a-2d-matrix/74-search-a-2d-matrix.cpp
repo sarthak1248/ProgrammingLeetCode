@@ -1,13 +1,22 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        for(int i=0;i<matrix.size();i++){
-            for(int j=0;j<matrix[0].size();j++){
-            if(matrix[i][j]==target){
+                int n=matrix.size();
+        int low=0;
+        int high=matrix[0].size()-1;
+        while(low<n && high>=0){
+            if(matrix[low][high]==target){
                 return true;
             }
+             
+               if(matrix[low][high]>target){
+                    high--;
+                }
+                else{
+                    low++;
+                }
             }
-        }
+        
         return false;
     }
 };
